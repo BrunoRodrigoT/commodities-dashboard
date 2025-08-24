@@ -31,13 +31,8 @@ const authConfig: NextAuthOptions = {
       }
       return token;
     },
-    async session({ session, token }) {
-      return {
-        ...session,
-        accessToken: token.accessToken,
-        profile: token.profile,
-        provider: token.provider,
-      };
+    async session({ session }) {
+      return session;
     },
   },
   logger: {

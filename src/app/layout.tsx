@@ -4,9 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { SessionProvider } from "@/providers/SessionProvider";
 import { QueryClientProvider } from "@/providers/QueryClientProvider";
 import { Toaster } from "sonner";
-import Header from "@/components/Header";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import AppSidebar from "@/components/AppSideBar";
+import AuthProvider from "@/providers/AuthProvider";
 
 export const metadata: Metadata = {
   title: "AgroData",
@@ -15,27 +13,24 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <SessionProvider>
         <QueryClientProvider>
-          <body className={`antialiased`}>
+          <body className="antialiased">
             <ThemeProvider
               attribute="class"
               defaultTheme="system"
               enableSystem
               disableTransitionOnChange
             >
-              <SidebarProvider>
-                <AppSidebar />
-                <SidebarTrigger />
-                <Header />
+              <AuthProvider>
                 {children}
                 <Toaster />
-              </SidebarProvider>
+              </AuthProvider>
             </ThemeProvider>
           </body>
         </QueryClientProvider>

@@ -5,7 +5,7 @@ import SignInTab from "./components/SignInTab";
 import { Title } from "@/components";
 
 export const metadata: Metadata = {
-  title: "Login",
+  title: "AgroData - Login",
 };
 
 export default function SignIn() {

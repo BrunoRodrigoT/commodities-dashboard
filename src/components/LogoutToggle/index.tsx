@@ -1,28 +1,13 @@
-"use client";
+import LogoutButton from "./LogoutButton";
+import { getServerSession } from "next-auth";
+import auth from "@/config/auth";
 
-import React from "react";
-import { Button } from "@/components/ui/button";
-import { LogOut } from "lucide-react";
-import AuthService from "@/services/auth.service";
-import { useSession } from "next-auth/react";
-import TooltipWrapper from "../TooltipWrapper";
+export default async function LogoutToggle() {
+  const session = await getServerSession(auth);
 
-export default function LogoutToggle() {
-  const session = useSession();
-
-  if (!session.data) {
+  if (!session) {
     return null;
   }
 
-  return (
-    <TooltipWrapper content={<p>Sair</p>}>
-      <Button
-        variant="outline"
-        size="icon"
-        onClick={() => AuthService.signOut()}
-      >
-        <LogOut />
-      </Button>
-    </TooltipWrapper>
-  );
+  return <LogoutButton />;
 }
