@@ -26,7 +26,6 @@ export default function mergeSeries(seriesList: InputSeries[]): Series[] {
         });
     });
 
-    // retorna ordenado por data
     return Object.values(merged).sort(
         (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
     );

@@ -1,5 +1,6 @@
 import { ICommodity } from "@/@types/Commodity";
 import api from "@/config/api";
+import handleAxiosError from "@/helpers/handleAxiosError";
 
 export default class CommoditiesService {
     static async get(commodity: string, interval: string, apiKey?: string): Promise<ICommodity> {

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import React, { useCallback, useEffect } from "react";
@@ -41,17 +42,12 @@ export default function DataListProvider() {
   });
 
   const mergedData = useCallback((wheat: Series, corn: Series) => {
-    return mergeSeries([wheat, corn]);
+    return mergeSeries([wheat as never, corn as never]);
   }, []);
 
   useEffect(() => {
-    if (
-      wheat.data &&
-      corn.data &&
-      wheat.data.length > 0 &&
-      corn.data.length > 0
-    ) {
-      const merged = mergedData(wheat.data, corn.data);
+    if (wheat.data && corn.data && wheat.data.data && corn.data.data) {
+      const merged = mergedData(wheat.data as never, corn.data as never);
       console.log(merged);
 
       setMergedState(merged);
@@ -67,17 +63,17 @@ export default function DataListProvider() {
     queries.forEach(({ name, data }) => {
       if (!data) return;
 
-      if (data["Error Message"]) {
+      if ((data as any)["Error Message"]) {
         toast({
           type: "error",
-          message: `${name}: ${data["Error Message"]}`,
+          message: `${name}: ${(data as any)["Error Message"]}`,
         });
       }
 
-      if (data["Information"]) {
+      if ((data as any)["Information"]) {
         toast({
           type: "info",
-          message: `${name}: ${data["Information"]}`,
+          message: `${name}: ${(data as any)["Information"]}`,
         });
       }
     });

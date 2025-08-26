@@ -52,11 +52,7 @@ export default function TableData({ isLoading, data, children }: Props) {
         {children}
       </CardHeader>
       <CardContent>
-        <DataTable
-          data={paginationInfo.items}
-          columns={columns}
-          caption="Dados Históricos"
-        />
+        <DataTable data={paginationInfo.items} columns={columns} />
       </CardContent>
       <CardFooter className="flex justify-end">
         <TablePagination
