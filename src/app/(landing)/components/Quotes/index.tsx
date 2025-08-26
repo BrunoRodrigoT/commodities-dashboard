@@ -44,17 +44,17 @@ export default function Quotes() {
     quotes.forEach(({ name, data }) => {
       if (!data) return;
 
-      if (data["Error Message"]) {
+      if ((data as never)["Error Message"]) {
         toast({
           type: "error",
-          message: `${name}: ${data["Error Message"]}`,
+          message: `${name}: ${(data as never)["Error Message"]}`,
         });
       }
 
-      if (data["Information"]) {
+      if ((data as never)["Information"]) {
         toast({
           type: "info",
-          message: `${name}: ${data["Information"]}`,
+          message: `${name}: ${(data as never)["Information"]}`,
         });
       }
     });

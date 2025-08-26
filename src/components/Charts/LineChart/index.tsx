@@ -11,7 +11,6 @@ import {
   LabelList,
   CartesianGrid,
   Tooltip,
-  LegendType,
 } from "recharts";
 import useUtils from "../../../utils/useUtils";
 import { ILineChartProps } from "./types";
@@ -100,12 +99,12 @@ export default function LineChart<T>({
           {gradientsComponent}
           {linesComponent}
           <XAxis
-            fontSize="0.75rem"
+            fontSize="0.6rem"
             {...x}
             domain={[0, limit || (x?.dataKey as string)]}
           />
           <YAxis
-            fontSize="0.75rem"
+            fontSize="0.6rem"
             {...y}
             domain={[0, limit || (y?.dataKey as string)]}
           />
@@ -113,16 +112,6 @@ export default function LineChart<T>({
           {!!legend && (
             <Legend
               layout={legend.layout || "horizontal"}
-              payload={legend.payload?.map((title) => ({
-                id: title.id || title.value,
-                type: (legend.type as LegendType) || "circle",
-                color: title.color || "#1d4ed8",
-                value: (
-                  <span className="text-xs font-bold text-secondary-500">
-                    {title.value}
-                  </span>
-                ),
-              }))}
               verticalAlign={legend.verticalAlign || "top"}
               iconSize={legend.iconSize}
               align={legend.align || "right"}

@@ -12,11 +12,11 @@ export default function ApiKeyCard() {
   const { apiKey, setApiKey } = useApiKey();
   const [showForm, setShowForm] = React.useState(!apiKey);
 
-  const { control, handleSubmit, reset } = useForm<FormValues>({
+  const { control, handleSubmit, reset } = useForm({
     defaultValues: { apiKey },
   });
 
-  const onSubmit = (data: FormValues) => {
+  const onSubmit = (data: { apiKey: string }) => {
     setApiKey(data.apiKey);
     setShowForm(false);
   };

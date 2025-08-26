@@ -8,7 +8,17 @@ import {
 } from 'recharts';
 import { Margin } from 'recharts/types/util/types';
 import React, { ReactElement } from 'react';
-import { GradientProps } from '../AreaChart/types';
+
+
+export interface GradientProps {
+    id: string;
+    from: string;
+    to: string;
+    x1?: string;
+    x2?: string;
+    y1?: string;
+    y2?: string;
+}
 
 export interface LineProps {
     key: string;

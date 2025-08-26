@@ -1,6 +1,7 @@
 import { LineChart } from "@/components/Charts";
 import { Card, CardHeader } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Series } from "@/utils/mergeDataSeries";
 import { TrendingUp } from "lucide-react";
 import React from "react";
 
@@ -33,12 +34,14 @@ export default function LineDashboard({ isLoading, data }: Props) {
             { key: "Global Price of Corn", color: "#facc15" },
           ]}
           legend={{
-            payload: [
-              { value: "Wheat", color: "#4ade80" },
-              { value: "Corn", color: "#facc15" },
-            ],
+            verticalAlign: "bottom",
+            align: "center",
           }}
-          tooltip={{ cursor: false }}
+          tooltip={{
+            cursor: false,
+            formatter: (value) => value.toFixed(2),
+            labelClassName: "text-muted-foreground text-sm",
+          }}
           className="w-full h-full"
         />
       </Card>

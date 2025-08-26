@@ -9,12 +9,11 @@ import { LucideProps } from "lucide-react";
 import React from "react";
 import { format, parseISO } from "date-fns";
 import { Badge } from "@/components/ui/badge";
-import { IQuote } from "@/@types/Quote";
 import { cn } from "@/lib/utils";
 import { Skeleton } from "@/components/ui/skeleton";
 
 type props = {
-  data: IQuote["Global Quote"];
+  data: Record<string, string>;
   icon: React.ForwardRefExoticComponent<
     Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>
   >;
@@ -55,10 +54,11 @@ export default function CommoditsCard({
         </p>
         <Badge
           variant={
-            data["10. change percent"] &&
-            (data["10. change percent"].includes("-")
-              ? "destructive"
-              : "success")
+            data["10. change percent"]
+              ? data["10. change percent"].includes("-")
+                ? "destructive"
+                : "success"
+              : "default"
           }
         >
           {data["10. change percent"] || "N/A"}
