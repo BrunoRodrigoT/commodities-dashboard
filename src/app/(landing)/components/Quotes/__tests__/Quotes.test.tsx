@@ -17,8 +17,16 @@ jest.mock("@/utils/toast", () => ({
   default: jest.fn(),
 }));
 
+interface MockCommoditsCardProps {
+  data: Record<string, string>;
+  loading: boolean;
+  icon: React.ComponentType;
+  className: string;
+  iconClassName: string;
+}
+
 jest.mock("@/components/Cards", () => ({
-  CommoditsCard: ({ data, loading, icon, className, iconClassName }: any) => (
+  CommoditsCard: ({ data, loading, className, iconClassName }: MockCommoditsCardProps) => (
     <div
       data-testid="commodits-card"
       data-loading={loading}

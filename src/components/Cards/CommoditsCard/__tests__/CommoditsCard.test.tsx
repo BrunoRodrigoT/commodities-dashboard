@@ -1,11 +1,11 @@
 import { render, screen } from "@testing-library/react";
 import CommoditsCard from "../index";
-import { TrendingUp, TrendingDown } from "lucide-react";
+import { TrendingUp } from "lucide-react";
 
 // Mock date-fns
 jest.mock("date-fns", () => ({
-  format: jest.fn((date, formatString) => "01/01/2024"),
-  parseISO: jest.fn((dateString) => new Date(dateString)),
+  format: jest.fn(() => "01/01/2024"),
+  parseISO: jest.fn((dateString: string) => new Date(dateString)),
 }));
 
 describe("CommoditsCard", () => {
