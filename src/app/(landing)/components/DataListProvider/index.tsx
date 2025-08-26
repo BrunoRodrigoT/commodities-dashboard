@@ -52,6 +52,8 @@ export default function DataListProvider() {
       corn.data.length > 0
     ) {
       const merged = mergedData(wheat.data, corn.data);
+      console.log(merged);
+
       setMergedState(merged);
     }
   }, [wheat.data, corn.data, mergedData]);
