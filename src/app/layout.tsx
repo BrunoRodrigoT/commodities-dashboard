@@ -5,6 +5,7 @@ import { SessionProvider } from "@/providers/SessionProvider";
 import { QueryClientProvider } from "@/providers/QueryClientProvider";
 import { Toaster } from "sonner";
 import AuthProvider from "@/providers/AuthProvider";
+import { ApiKeyProvider } from "@/contexts/ApiKeyContext";
 
 export const metadata: Metadata = {
   title: "AgroData",
@@ -19,21 +20,23 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <SessionProvider>
-        <QueryClientProvider>
-          <body className="antialiased">
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="system"
-              enableSystem
-              disableTransitionOnChange
-            >
-              <AuthProvider>
-                {children}
-                <Toaster />
-              </AuthProvider>
-            </ThemeProvider>
-          </body>
-        </QueryClientProvider>
+        <ApiKeyProvider>
+          <QueryClientProvider>
+            <body className="antialiased">
+              <ThemeProvider
+                attribute="class"
+                defaultTheme="system"
+                enableSystem
+                disableTransitionOnChange
+              >
+                <AuthProvider>
+                  {children}
+                  <Toaster />
+                </AuthProvider>
+              </ThemeProvider>
+            </body>
+          </QueryClientProvider>
+        </ApiKeyProvider>
       </SessionProvider>
     </html>
   );

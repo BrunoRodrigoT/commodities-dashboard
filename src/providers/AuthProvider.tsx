@@ -1,8 +1,7 @@
 import { getServerSession } from "next-auth";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import AppSidebar from "@/components/AppSideBar";
-import Header from "@/components/Header";
+import Header from "@/components/Layout/Header";
 import auth from "@/config/auth";
+import Layout from "@/components/Layout";
 
 type Props = {
   children: React.ReactNode;
@@ -20,12 +19,5 @@ export default async function AuthProvider({ children }: Props) {
     );
   }
 
-  return (
-    <SidebarProvider>
-      <AppSidebar />
-      <SidebarTrigger />
-      <Header />
-      {children}
-    </SidebarProvider>
-  );
+  return <Layout>{children}</Layout>;
 }

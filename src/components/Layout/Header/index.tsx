@@ -1,5 +1,5 @@
 import React from "react";
-import { ModeToggle } from "../ModeToggle";
+import ModeToggle from "../ModeToggle";
 import LogoutToggle from "../LogoutToggle";
 
 export default function Header() {

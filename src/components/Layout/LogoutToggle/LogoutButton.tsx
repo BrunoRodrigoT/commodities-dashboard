@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { LogOut } from "lucide-react";
 import AuthService from "@/services/auth.service";
-import TooltipWrapper from "../TooltipWrapper";
+import TooltipWrapper from "../../TooltipWrapper";
 
 export default function LogoutButton() {
   return (

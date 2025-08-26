@@ -1,7 +1,13 @@
+import ApiKeyCard from "./components/ApiKeyCard";
+import DataListProvider from "./components/DataListProvider";
+import Quotes from "./components/Quotes";
+
 export default function Home() {
   return (
-    <div>
-      <section className="flex flex-col gap-4 items-center h-screen max-h-full text-center px-4 py-12"></section>
+    <div className="flex flex-col gap-4 align-baseline w-full px-4 py-16">
+      <ApiKeyCard />
+      <Quotes />
+      <DataListProvider />
     </div>
   );
 }
