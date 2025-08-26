@@ -34,7 +34,7 @@ export default function ApiKeyCard() {
 
   return (
     <Card className="border-2 border-info-200 bg-info-100 dark:bg-info-900 dark:border-info-800">
-      <CardContent className="flex flex-row justify-between ">
+      <CardContent className="flex flex-row flex-wrap justify-between gap-4">
         <div className="flex flex-row gap-2 items-center">
           <Key />
           <p>
