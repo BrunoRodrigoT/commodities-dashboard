@@ -6,6 +6,7 @@ const queryClient = new QueryClient({
       retry: false,
     },
     queries: {
+      refetchInterval: 5000,
       retry: false,
       refetchOnWindowFocus: false,
     },
