@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { useApiKey } from "@/contexts/ApiKeyContext";
+import { useApiKey } from "@/stores/ApiKeyState";
 import { Key } from "lucide-react";
 import React from "react";
 import { useForm } from "react-hook-form";

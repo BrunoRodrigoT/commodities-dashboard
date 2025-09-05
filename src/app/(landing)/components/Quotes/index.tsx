@@ -5,7 +5,7 @@ import React, { useEffect } from "react";
 import QuoteService from "@/services/quote.service";
 import { useQueries } from "@tanstack/react-query";
 import { DollarSign, TrendingUp, Wheat } from "lucide-react";
-import { useApiKey } from "@/contexts/ApiKeyContext";
+import { useApiKey } from "@/stores/ApiKeyState";
 import toast from "@/utils/toast";
 
 export default function Quotes() {
@@ -18,18 +18,21 @@ export default function Quotes() {
         queryFn: () => QuoteService.get("Wheat", apiKey),
         retry: false,
         enabled: apiKey !== "",
+        staleTime: 1000 * 60 * 5,
       },
       {
         queryKey: ["cornQuote", apiKey],
         queryFn: () => QuoteService.get("Corn", apiKey),
         retry: false,
         enabled: apiKey !== "",
+        staleTime: 1000 * 60 * 5,
       },
       {
         queryKey: ["dollarQuote", apiKey],
         queryFn: () => QuoteService.get("DOL", apiKey),
         retry: false,
         enabled: apiKey !== "",
+        staleTime: 1000 * 60 * 5,
       },
     ],
   });
